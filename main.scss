@@ -1,0 +1,367 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.panel {
+  height: 60vh;
+  width: 60px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+
+  &--navigation {
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  &--location {
+    right: 0;
+  }
+
+  &__elem {
+    height: 60vh;
+    width: 100%;
+    text-align: center;
+
+    &--navigation {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+
+        &:first-child {
+          border-top-right-radius: 10px;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: 10px;
+        }
+      }
+
+      i {
+        font-size: 2em;
+        line-height: 2;
+      }
+    }
+
+    &--location {
+      i {
+        font-size: 1em;
+        line-height: 2;
+      }
+    }
+
+    i {
+      color: white;
+    }
+  }
+}
+
+section {
+  height: 100%;
+  width:100%;
+  position: relative;
+  //transition: all 0.4s linear;
+
+  .content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .text {
+      height: 100vh;
+      width: 60%;
+      margin-left: 20%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 100;
+      font-size: 1.5em;
+
+      h1 {
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+      h5 {
+        font-weight: 100;
+        color: azure;
+        margin: 0;
+
+        &:last-child {
+          margin-top: 10px;
+        }
+      }
+
+      i {
+        font-size: 0.83em;
+      }
+
+      &__line {
+        border-bottom: 1px solid;
+        padding-bottom: 20px;
+        width: 20px;
+      }
+
+      &__header-list {
+        margin: 15px 0;
+        display: block;
+      }
+
+      a {
+        color: white !important;
+      }
+    }
+  }
+
+  &.intro {
+    background-color: #5e4fa2;
+    z-index: 0;
+
+    .text {
+      width: 100%;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffff;
+      text-align: center;
+
+      h1 {
+        font-size: 60px;
+        font-weight: 400;
+
+
+        @media only screen and (max-width: 600px) {
+          padding: 0 70px !important;
+          font-size: 40px;
+        }
+      }
+
+      h3 {
+        font-size: 30px;
+        font-weight: 100;
+
+        @media only screen and (max-width: 600px) {
+          padding: 0 70px !important;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  &.about {
+    background-color: #3288bd;
+    z-index: 1;
+
+    @media only screen and (max-width: 600px) {
+      .text {
+        width: 70% !important;
+        margin: 0 !important;
+        padding: 0 70px !important;
+        font-size: 1.2em !important;
+      }
+
+      .image-wrapper {
+        display: none !important;
+      }
+    }
+
+    .image-wrapper {
+      width: fit-content;
+      margin-left: 300px;
+      //transform: rotate3d(2, 1, -2, 55deg);
+      transform: rotate3d(3, 2, -2, 55deg);
+      box-shadow: -12px 22px 53px 0px rgba(0, 0, 0, 0.4);
+      display: flex;
+      float: right;
+      position: absolute;
+      right: -100px;
+      opacity: 0;
+
+      &--first {
+        bottom: 600px;
+      }
+
+      &--second {
+        bottom: 400px;
+      }
+
+      &--third {
+        bottom: 200px;
+      }
+
+
+      &--fourth {
+        bottom: 0;
+      }
+
+      .my-image {
+        height: 200px;
+        width: 200px;
+        background-size: cover;
+        background-position-x: -15px;
+        border: 4px solid white;
+
+        &--first {
+          background-image: url("/images/me.jpg");
+        }
+
+        &--second {
+          background-image: url("/images/berlin.JPG");
+        }
+
+        &--third {
+          background-image: url("/images/berlin2.JPG");
+        }
+
+        &--fourth {
+          background-image: url("/images/gdynia2.JPG");
+        }
+
+        &--fifth {
+          background-image: url("/images/eifle.jpg");
+        }
+
+        &--sixth {
+          background-image: url("/images/rimini.jpg");
+        }
+
+        &--seventh {
+          background-image: url("/images/budapest.jpg");
+        }
+
+        &--eighth {
+          background-image: url("/images/london.JPG");
+        }
+
+        &--ninth {
+          background-image: url("/images/gdynia3.JPG");
+        }
+
+        &--tenth {
+          background-image: url("/images/berlin2.JPG");
+        }
+
+        &--eleventh {
+          background-image: url("/images/rome.jpg");
+        }
+
+        &--twelfth {
+          background-image: url("/images/gdynia2.JPG");
+        }
+      }
+    }
+
+    .text {
+      height: 100%;
+      width: 50%;
+      margin-left: 100px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 100;
+      font-size: 1.5em;
+      transform: scale(0.5);
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  &.experience.sap-first {
+    background-color: #66c2a5;
+    z-index: 2;
+  }
+
+  &.experience.sap-second {
+    background-color: #abdda4;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /*// z prawej*/
+    /*left: -100%;*/
+  }
+
+  &.experience.xsolve {
+    background-color: #e6f598;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.experience.autea {
+    background-color: #fee08b;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.education.aei-first {
+    background-color: #fdae61;
+    z-index: 6;
+  }
+
+  &.education.aei-second {
+    background-color: #f46d43;
+    z-index: 7;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.skills {
+    background-color: #d53e4f;
+    z-index: 8;
+  }
+
+  &.portfolio.openwhisk {
+    background-color: #9e0142;
+    z-index: 9;
+  }
+
+  &.portfolio.blog {
+    background-color: #7c0063;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.portfolio.other {
+    background-color: #170044;
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.footer {
+    background-color: #1a1a1a;
+    z-index: 12;
+  }
+
+  .is-active {
+    filter: brightness(150%);
+  }
+}
