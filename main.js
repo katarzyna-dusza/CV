@@ -80,6 +80,12 @@
             $('.experience.sap-first').css({
                 'padding-bottom': 3 * window.innerHeight
             });
+
+            $('.experience.sap-first > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (zooming -3) + ')'
+            });
+
             sapSecond.css({
                 'left': '100%'
             });
@@ -107,6 +113,12 @@
             xsolve.css({
                 'left': '100%'
             });
+
+            $('.experience.sap-second > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (1 - ($('.experience.sap-second').offset().left / window.innerWidth)) + ')'
+            });
+
         }
 
         if ($('.experience.xsolve').offset().left === 0) {
@@ -130,6 +142,18 @@
         if ($('.experience.xsolve').offset().left > 0) {
             autea.css({
                 'left': '100%'
+            });
+
+            $('.experience.xsolve > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (1 - ($('.experience.xsolve').offset().left / window.innerWidth)) + ')'
+            });
+        }
+
+        if ($('.experience.autea').offset().left > 0) {
+            $('.experience.autea > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (1 - ($('.experience.autea').offset().left / window.innerWidth)) + ')'
             });
         }
 
@@ -161,20 +185,36 @@
             aeiSecond.css({
                 'left': '100%'
             });
+
+            $('.education.aei-first > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (zooming -11) + ')'
+            });
             // $('.experience.sap-second').css('position', 'fixed');
             // $('.experience.sap-second').css('left', '0');
+        }
+
+        if ($('.education.aei-second').offset().left > 0) {
+            $('.education.aei-second > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (1 - ($('.education.aei-second').offset().left / window.innerWidth)) + ')'
+            });
         }
 
         if (currentPosition >= skills) {
             $('.skills > div').css({
                 'position': 'fixed'
             });
-
         }
 
         if ( currentPosition < skills ) {
             $('.skills > div').css({
                 'position': 'absolute'
+            });
+
+            $('.skills > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(' + (zooming -15) + ')'
             });
         }
 
@@ -237,7 +277,6 @@
             $('.footer > div').css({
                 'position': 'fixed'
             });
-
         }
 
         if ( currentPosition < footer ) {

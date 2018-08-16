@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="panel panel--navigation">
-        <div class="panel__elem panel__elem--navigation" id="intro" onclick="goTo(this)">
+        <div class="panel__elem panel__elem--navigation current" id="intro" onclick="goTo(this)">
             <i class="material-icons">home</i>
             <!--<i class="material-icons">apps</i>-->
         </div>
@@ -212,8 +212,6 @@
                         It has features like visit reservation, private chat with doctors, medical history with a possibility to save it as a pdf file,
                         sending e-mails with reservation confirmation etc.
                     </span>
-                        <li>performance of relational and non-relational databases (MongoDB, MySQL) - I published tests code on my Github,</li>
-                        <li>performance of event-driven and threaded models (PHP, NodeJS, PHP with ReactPHP framework).</li>
 
                     <span class="text__header-list">Achievements:</span>
                         <li>Publication: <em><a href="https://ieeexplore.ieee.org/document/7733247/">"Application of RapidMiner and R environments to dangerous seismic events prediction"</a></em> (me and 7 other authors),</li>
@@ -258,17 +256,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-    <script>
-        function scrollToElement(element) {
-            $('html, body').animate({
-                scrollTop: element.offset().top
-            }, 1000);
-        }
-
-        function goTo(navElement) {
-            var aboutElement = $('.' + navElement.id);
-            scrollToElement(aboutElement);
-        }
-    </script>
+    <script src="scripts/panels.js"></script>
 </body>
 </html>

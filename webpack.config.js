@@ -1,14 +1,21 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+// import london from './images/london.JPG';
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: './index.html'
 });
 
+// const copyWebpackPlugin = new CopyWebpackPlugin([
+//     { from: './images', to: './images' }
+// ]);
+
 module.exports = {
     entry: {
         js: './main.js',
-        css: './main.scss'
+        css: './styles/main.scss'
     },
     output: {
         filename: '[name].js',
@@ -20,16 +27,28 @@ module.exports = {
         },
     },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: [
-                "style-loader",
-                "css-loader",
-                "sass-loader"
-            ]
-        }]
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\.(png|jpg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
+            }
+        ]
     },
     plugins: [
+        // copyWebpackPlugin,
         htmlWebpackPlugin
     ],
     mode: 'development'

@@ -1,0 +1,210 @@
+@import "variables";
+
+section {
+  height: 100%;
+  width:100%;
+  position: relative;
+  //transition: all 0.4s linear;
+
+  .content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .text {
+      height: 100vh;
+      width: 60%;
+      margin-left: 20%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 100;
+      font-size: 1.5em;
+
+      h1 {
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+      h5 {
+        font-weight: 100;
+        margin: 0;
+
+        &:last-child {
+          margin-top: 10px;
+        }
+      }
+
+      i {
+        font-size: 0.83em;
+      }
+
+      &__line {
+        width: 20px;
+        border-bottom: 1px solid;
+        padding-bottom: 20px;
+      }
+
+      &__header-list {
+        margin: 15px 0;
+        display: block;
+      }
+
+      a {
+        color: $main-font-color !important;
+      }
+    }
+  }
+
+  &.intro {
+    background-color: $intro;
+    z-index: 0;
+
+    .text {
+      width: 100%;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+
+      h1 {
+        font-size: 60px;
+        font-weight: 400;
+
+
+        @media only screen and (max-width: 600px) {
+          padding: 0 70px !important;
+          font-size: 40px;
+        }
+      }
+
+      h3 {
+        font-size: 30px;
+        font-weight: 100;
+
+        @media only screen and (max-width: 600px) {
+          padding: 0 70px !important;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  &.about {
+    background-color: $about;
+    z-index: 1;
+
+    @media only screen and (max-width: 600px) {
+      .text {
+        width: 70% !important;
+        margin: 0 !important;
+        padding: 0 70px !important;
+        font-size: 1.2em !important;
+      }
+
+      .image-wrapper {
+        display: none !important;
+      }
+    }
+
+    .text {
+      height: 100%;
+      width: 50%;
+      margin-left: 100px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 100;
+      font-size: 1.5em;
+      transform: scale(0.5);
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  &.experience.sap-first {
+    background-color: $sap-first;
+    z-index: 2;
+  }
+
+  &.experience.sap-second {
+    background-color: $sap-second;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /*// z prawej*/
+    /*left: -100%;*/
+  }
+
+  &.experience.xsolve {
+    background-color: $xsolve;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.experience.autea {
+    background-color: $autea;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.education.aei-first {
+    background-color: $aei-first;
+    z-index: 6;
+  }
+
+  &.education.aei-second {
+    background-color: $aei-second;
+    z-index: 7;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.skills {
+    background-color: $skills;
+    z-index: 8;
+  }
+
+  &.portfolio.openwhisk {
+    background-color: $openwhisk;
+    z-index: 9;
+  }
+
+  &.portfolio.blog {
+    background-color: $blog;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.portfolio.other {
+    background-color: $other;
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 100%;
+  }
+
+  &.footer {
+    background-color: $footer;
+    z-index: 12;
+  }
+
+  .is-active {
+    filter: brightness(150%);
+  }
+}
