@@ -33,10 +33,10 @@ section {
       h5 {
         font-weight: 100;
         margin: 0;
+      }
 
-        &:last-child {
-          margin-top: 10px;
-        }
+      h5.time {
+        margin-bottom: 5px;
       }
 
       i {
@@ -163,6 +163,10 @@ section {
   &.education.aei-first {
     background-color: $aei-first;
     z-index: 6;
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   &.education.aei-second {
@@ -171,6 +175,10 @@ section {
     position: fixed;
     top: 0;
     left: 100%;
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   &.skills {
