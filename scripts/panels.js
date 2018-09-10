@@ -35,7 +35,7 @@ function currentNavigationElement(currentPosition) {
     const aeiFirst = $('.education.aei-first').offset().top;
     const skills = $('.skills').offset().top;
     const openwhisk = $('.portfolio.openwhisk').offset().top;
-    const footer = $('.footer').offset().top;
+    const contact = $('.contact').offset().top;
 
     clearNavigationElements();
 
@@ -48,10 +48,10 @@ function currentNavigationElement(currentPosition) {
             return $('#education').addClass('current');
         case (currentPosition >= skills && currentPosition < openwhisk):
             return $('#skills').addClass('current');
-        case (currentPosition >= openwhisk && currentPosition < footer):
+        case (currentPosition >= openwhisk && currentPosition < contact):
             return $('#portfolio').addClass('current');
-        case (currentPosition >= footer):
-            return $('#footer').addClass('current');
+        case (currentPosition >= contact):
+            return $('#contact').addClass('current');
         default:
             return $('#intro').addClass('current');
     }
@@ -70,7 +70,7 @@ function currentLocationElement(currentPosition) {
     const openwhisk = $('.portfolio.openwhisk').offset().top;
     const blog = $('.portfolio.blog').offset().left;
     const other = $('.portfolio.other').offset().left;
-    const footer = $('.footer').offset().top;
+    const contact = $('.contact').offset().top;
     let currentIndex = 0;
 
     clearLocationElements();
@@ -108,19 +108,19 @@ function currentLocationElement(currentPosition) {
             currentIndex = 8;
             icon.eq(currentIndex).text('radio_button_checked');
             break;
-        case (currentPosition >= openwhisk && currentPosition < footer && blog !== 0):
+        case (currentPosition >= openwhisk && currentPosition < contact && blog !== 0):
             currentIndex = 9;
             icon.eq(currentIndex).text('radio_button_checked');
             break;
-        case (currentPosition >= openwhisk && currentPosition < footer && blog === 0 && other !== 0):
+        case (currentPosition >= openwhisk && currentPosition < contact && blog === 0 && other !== 0):
             currentIndex = 10;
             icon.eq(currentIndex).text('radio_button_checked');
             break;
-        case (currentPosition >= openwhisk && currentPosition < footer && blog === 0 && other === 0):
+        case (currentPosition >= openwhisk && currentPosition < contact && blog === 0 && other === 0):
             currentIndex = 11;
             icon.eq(currentIndex).text('radio_button_checked');
             break;
-        case (currentPosition >= footer):
+        case (currentPosition >= contact):
             currentIndex = 12;
             icon.eq(currentIndex).text('radio_button_checked');
             break;

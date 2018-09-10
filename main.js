@@ -21,7 +21,7 @@
         const openwhisk = $('.portfolio.openwhisk').offset().top;
         const blog = $('.portfolio.blog');
         const other = $('.portfolio.other');
-        const footer = $('.footer').offset().top;
+        const contact = $('.contact').offset().top;
 
         const currentPosition = $(document).scrollTop();
         const windowHeight = window.innerHeight;
@@ -290,18 +290,18 @@
             });
         }
 
-        if (currentPosition >= footer) {
-            $('.footer > div').css({
+        if (currentPosition >= contact) {
+            $('.contact > div').css({
                 'position': 'fixed'
             });
         }
 
-        if ( currentPosition < footer ) {
-            $('.footer > div').css({
+        if ( currentPosition < contact ) {
+            $('.contact > div').css({
                 'position': 'absolute'
             });
 
-            $('.footer > .content > .text').css({
+            $('.contact > .content > .text').css({
                 // 'position': 'absolute'//,
                 'transform': 'scale(' + (zooming -23) + ')'
             });
