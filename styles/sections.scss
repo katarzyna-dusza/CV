@@ -102,7 +102,6 @@ section {
         font-weight: 100;
 
         @media only screen and (max-width: 600px) {
-          padding: 0 70px !important;
           font-size: 20px;
         }
       }
@@ -130,10 +129,6 @@ section {
       font-weight: 100;
       font-size: 1.5em;
       transform: scale(0.5);
-
-      p {
-        text-align: justify;
-      }
     }
   }
 
@@ -168,12 +163,27 @@ section {
     left: 100%;
   }
 
+  &.education {
+    p {
+      margin-bottom: 0;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    h5.small-header {
+      margin-top: 1em;
+      font-style: italic;
+    }
+  }
+
   &.education.aei-first {
     background-color: $aei-first;
     z-index: 6;
 
-    p {
-      margin-bottom: 0;
+    p > a {
+        color: #FFFFC7 !important;
     }
   }
 
@@ -184,19 +194,44 @@ section {
     top: 0;
     left: 100%;
 
-    p {
-      margin-bottom: 0;
+    p > a {
+      color: #FFD3A9 !important;
     }
   }
 
   &.skills {
     background-color: $skills;
     z-index: 8;
+
+    h5.small-header {
+      font-style: italic;
+    }
+  }
+
+  &.portfolio > .content > .text > .portfolio-content {
+    margin-top: 50px;
+
+    p > a {
+      text-decoration: none;
+    }
+
+    .description {
+      width: 40%;
+      float: left;
+    }
+
+    img {
+      width: 60%;
+    }
   }
 
   &.portfolio.openwhisk {
     background-color: $openwhisk;
     z-index: 9;
+
+    .content > .text > .portfolio-content > p > a {
+      color: #FF67A8 !important;
+    }
   }
 
   &.portfolio.blog {
@@ -205,6 +240,10 @@ section {
     position: fixed;
     top: 0;
     left: 100%;
+
+    .content > .text > .portfolio-content > p > a {
+      color: #E266C9 !important;
+    }
   }
 
   &.portfolio.other {
@@ -213,11 +252,23 @@ section {
     position: fixed;
     top: 0;
     left: 100%;
+
+    .content > .text > .portfolio-content > p > a {
+      color: #B099DD !important;
+    }
   }
 
   &.contact {
     background-color: $contact;
     z-index: 12;
+
+    i {
+      margin-right: 20px;
+    }
+
+    p > a {
+      text-decoration: none;
+    }
   }
 
   .is-active {
