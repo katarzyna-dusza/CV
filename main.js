@@ -40,7 +40,6 @@
             });
 
             $('.about > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(1)'
             });
         }
@@ -63,6 +62,10 @@
         if ( currentPosition >= sapFirst ) {
             $('.experience.sap-first > div').css({
                 'position': 'fixed'
+            });
+
+            $('.experience.sap-first > .content > .text').css({
+                'transform': 'scale(1)'
             });
 
             if (elementPosition >= 0) {
@@ -101,6 +104,10 @@
                 'position': 'fixed'
             });
 
+            $('.experience.sap-second > .content > .text').css({
+                'transform': 'scale(1)'
+            });
+
             if (windowWidth + elementPosition >= 0) {
                 xsolve.css({
                     'left':  windowWidth + elementPosition
@@ -129,6 +136,10 @@
         if ($('.experience.xsolve').offset().left === 0) {
             $('.experience.xsolve').css({
                 'position': 'fixed'
+            });
+
+            $('.experience.xsolve > .content > .text').css({
+                'transform': 'scale(1)'
             });
 
             if (2 * windowWidth + elementPosition >= 0) {
@@ -162,9 +173,23 @@
             });
         }
 
+        if ($('.experience.autea').offset().left === 0) {
+            $('.experience.autea').css({
+                'position': 'fixed'
+            });
+
+            $('.experience.autea > .content > .text').css({
+                'transform': 'scale(1)'
+            });
+        }
+
         if ( currentPosition >= aeiFirst ) {
             $('.education.aei-first > div').css({
                 'position': 'fixed'
+            });
+
+            $('.education.aei-first > .content > .text').css({
+                'transform': 'scale(1)'
             });
 
             if (4 * windowWidth + elementPosition >= 0) {
@@ -206,9 +231,23 @@
             });
         }
 
+        if ($('.education.aei-second').offset().left === 0) {
+            $('.education.aei-second').css({
+                'position': 'fixed'
+            });
+
+            $('.education.aei-second > .content > .text').css({
+                'transform': 'scale(1)'
+            });
+        }
+
         if (currentPosition >= skills) {
             $('.skills > div').css({
                 'position': 'fixed'
+            });
+
+            $('.skills > .content > .text').css({
+                'transform': 'scale(1)'
             });
         }
 
@@ -226,6 +265,10 @@
         if (currentPosition >= openwhisk) {
             $('.portfolio.openwhisk > div').css({
                 'position': 'fixed'
+            });
+
+            $('.portfolio.openwhisk > .content > .text').css({
+                'transform': 'scale(1)'
             });
 
             if (7 * windowWidth + elementPosition >= 0) {
@@ -264,6 +307,10 @@
                 'position': 'fixed'
             });
 
+            $('.portfolio.blog > .content > .text').css({
+                'transform': 'scale(1)'
+            });
+
             if (8 * windowWidth + elementPosition >= 0) {
                 other.css({
                     'left':  8 * windowWidth + elementPosition
@@ -288,6 +335,16 @@
             });
         }
 
+        if ($('.portfolio.other').offset().left === 0) {
+            $('.portfolio.other').css({
+                'position': 'fixed'
+            });
+
+            $('.portfolio.other > .content > .text').css({
+                'transform': 'scale(1)'
+            });
+        }
+
         if ($('.portfolio.other').offset().left > 0) {
             $('.portfolio.other > .content > .text').css({
                 // 'position': 'absolute'//,
@@ -298,6 +355,10 @@
         if (currentPosition >= contact) {
             $('.contact > div').css({
                 'position': 'fixed'
+            });
+
+            $('.contact > .content > .text').css({
+                'transform': 'scale(1)'
             });
         }
 

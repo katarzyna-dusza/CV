@@ -4,7 +4,6 @@ section {
   height: 100%;
   width:100%;
   position: relative;
-  //transition: all 0.4s linear;
 
   .content {
     height: 100%;
@@ -62,15 +61,19 @@ section {
         color: $main-font-color !important;
       }
 
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 667px) {
         width: 90% !important;
         padding: 0 !important;
         margin-left: 5% !important;
-        font-size: 1.2em !important;
+        font-size: 1.1em !important;
 
         h1 {
           font-size: 1.2em;
         }
+      }
+
+      @media only screen and (max-width: 320px) {
+        font-size: 0.9em !important;
       }
     }
   }
@@ -91,7 +94,7 @@ section {
         font-weight: 400;
 
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 667px) {
           padding: 0 70px !important;
           font-size: 40px;
         }
@@ -101,7 +104,7 @@ section {
         font-size: 30px;
         font-weight: 100;
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 667px) {
           font-size: 20px;
         }
       }
@@ -111,12 +114,6 @@ section {
   &.about {
     background-color: $about;
     z-index: 1;
-
-    @media only screen and (max-width: 600px) {
-      .image-wrapper {
-        display: none !important;
-      }
-    }
 
     .text {
       height: 100%;
@@ -129,6 +126,11 @@ section {
       font-weight: 100;
       font-size: 1.5em;
       transform: scale(0.5);
+
+      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 70%;
+        margin-left: 15%;
+      }
     }
   }
 
@@ -223,6 +225,28 @@ section {
     img {
       width: 60%;
     }
+
+    @media only screen and (max-width: 667px) {
+      margin-top: 0;
+
+      .description {
+        width: 100%;
+      }
+
+      img {
+        display: none !important;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .description {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   &.portfolio.openwhisk {
@@ -266,9 +290,27 @@ section {
       i {
         margin-right: 20px;
       }
-      
+
       a {
         text-decoration: none
+      }
+    }
+
+    @media only screen and (width: 768px) {
+      p {
+        font-size: 22px;
+      }
+    }
+
+    @media only screen and (max-width: 667px) {
+      p {
+        font-size: 16px;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      p {
+        font-size: 14px;
       }
     }
   }
