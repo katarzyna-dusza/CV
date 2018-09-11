@@ -39,6 +39,10 @@ section {
         margin-bottom: 5px;
       }
 
+      p {
+        text-align: justify;
+      }
+
       i {
         font-size: 0.83em;
       }
@@ -56,6 +60,17 @@ section {
 
       a {
         color: $main-font-color !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        width: 90% !important;
+        padding: 0 !important;
+        margin-left: 5% !important;
+        font-size: 1.2em !important;
+
+        h1 {
+          font-size: 1.2em;
+        }
       }
     }
   }
@@ -99,13 +114,6 @@ section {
     z-index: 1;
 
     @media only screen and (max-width: 600px) {
-      .text {
-        width: 70% !important;
-        margin: 0 !important;
-        padding: 0 70px !important;
-        font-size: 1.2em !important;
-      }
-
       .image-wrapper {
         display: none !important;
       }

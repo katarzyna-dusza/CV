@@ -38,6 +38,11 @@
             $('.about > div').css({
                 'position': 'fixed'
             });
+
+            $('.about > .content > .text').css({
+                // 'position': 'absolute'//,
+                'transform': 'scale(1)'
+            });
         }
 
         if ( currentPosition < about ) {
