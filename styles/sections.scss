@@ -262,12 +262,14 @@ section {
     background-color: $contact;
     z-index: 12;
 
-    i {
-      margin-right: 20px;
-    }
-
-    p > a {
-      text-decoration: none;
+    p {
+      i {
+        margin-right: 20px;
+      }
+      
+      a {
+        text-decoration: none
+      }
     }
   }
 
