@@ -14,7 +14,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: {
-        js: './main.js',
+        js: ['./main.js', './main-m.js'],
         css: './styles/main.scss'
     },
     output: {
