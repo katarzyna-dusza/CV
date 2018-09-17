@@ -46,17 +46,14 @@
 
         if ( currentPosition < about ) {
             $('.about > div').css({
-                'position': 'absolute'//,
-                // 'transform': 'scale(' + zooming + ',' + zooming + ')'
+                'position': 'absolute'
             });
             $('.about > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -1) + ')'
+                'transform': 'scale(' + (zooming - 1) + ')'
             });
             $('.about > .content > .image-wrapper').css({
                 'opacity': zooming / 2
             });
-            // addZoomAnimation(zooming);
         }
 
         if ( currentPosition >= sapFirst ) {
@@ -90,7 +87,6 @@
             });
 
             $('.experience.sap-first > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(' + (zooming -3) + ')'
             });
 
@@ -127,7 +123,6 @@
             });
 
             $('.experience.sap-second > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(' + (1 - ($('.experience.sap-second').offset().left / window.innerWidth)) + ')'
             });
 
@@ -161,14 +156,12 @@
             });
 
             $('.experience.xsolve > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(' + (1 - ($('.experience.xsolve').offset().left / window.innerWidth)) + ')'
             });
         }
 
         if ($('.experience.autea').offset().left > 0) {
             $('.experience.autea > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(' + (1 - ($('.experience.autea').offset().left / window.innerWidth)) + ')'
             });
         }
@@ -216,17 +209,18 @@
                 'left': '100%'
             });
 
-            $('.education.aei-first > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -11) + ')'
-            });
+            if (zooming -11 < 1) {
+              $('.education.aei-first > .content > .text').css({
+                  'transform': 'scale(' + (zooming -11) + ')'
+              });
+            }
+
             // $('.experience.sap-second').css('position', 'fixed');
             // $('.experience.sap-second').css('left', '0');
         }
 
         if ($('.education.aei-second').offset().left > 0) {
             $('.education.aei-second > .content > .text').css({
-                // 'position': 'absolute'//,
                 'transform': 'scale(' + (1 - ($('.education.aei-second').offset().left / window.innerWidth)) + ')'
             });
         }
@@ -256,10 +250,11 @@
                 'position': 'absolute'
             });
 
-            $('.skills > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -15) + ')'
-            });
+            if (zooming -15 < 1) {
+              $('.skills > .content > .text').css({
+                  'transform': 'scale(' + (zooming -15) + ')'
+              });
+            }
         }
 
         if (currentPosition >= openwhisk) {
@@ -296,10 +291,11 @@
                 'left': '100%'
             });
 
-            $('.portfolio.openwhisk > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -17) + ')'
-            });
+            if (zooming -17 < 1) {
+              $('.portfolio.openwhisk > .content > .text').css({
+                  'transform': 'scale(' + (zooming -17) + ')'
+              });
+            }
         }
 
         if ($('.portfolio.blog').offset().left === 0) {
@@ -367,10 +363,11 @@
                 'position': 'absolute'
             });
 
-            $('.contact > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -23) + ')'
-            });
+            if (zooming -23 < 1) {
+              $('.contact > .content > .text').css({
+                  'transform': 'scale(' + (zooming -23) + ')'
+              });
+            }
         }
     });
 })();
