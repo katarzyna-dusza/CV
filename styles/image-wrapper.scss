@@ -53,6 +53,14 @@ section.about {
       background-position-x: -15px;
       border: 4px solid white;
 
+      &--right {
+        background-position: right;
+      }
+
+      &--center {
+        background-position: center;
+      }
+
       &--first {
         background-image: url($first);
       }
