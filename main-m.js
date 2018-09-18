@@ -4,7 +4,7 @@
         'overflow': 'scroll'
     });
 
-    $(".scrollable-sections").scroll(function() {
+    $('.scrollable-sections').scroll(function() {
         const about = $('.about').offset().top;
         const sapFirst = $('.experience.sap-first').offset().top;
         const sapSecond = $('.experience.sap-second');
@@ -18,7 +18,7 @@
         const other = $('.portfolio.other');
         const contact = $('.contact').offset().top;
 
-        const currentPosition = $(".scrollable-sections").scrollTop();
+        const currentPosition = $('.scrollable-sections').scrollTop();
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
 

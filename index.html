@@ -6,9 +6,17 @@
     <meta name='description' content=''>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+     <!-- for preloading -->
+    <style>
+      body {
+        background-color: #5e4fa2;
+        color: #5e4fa2;
+      }
+    </style>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <link href='styles/all.min.css' rel='stylesheet'>
 <body>
+    <div class='loader'></div>
     <div class='panel panel--navigation'>
         <div class='panel__elem panel__elem--navigation current' id='intro' onclick='goTo(this)'>
             <i class='material-icons'>home</i>

@@ -1,3 +1,7 @@
+$(window).on('load', function() {
+  $('.loader').fadeOut();
+});
+
 (function() {
     function addZoomAnimation(zooming) {
         $('section > div.content').each(function(index, value) {
