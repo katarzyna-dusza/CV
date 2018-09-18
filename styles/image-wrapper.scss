@@ -1,44 +1,25 @@
-@import "variables";
-
-
-$first: "../images/me-s.jpg";
-$second: "../images/berlin.jpg";
-$third: "../images/berlin2-s.jpg";
-$fourth: "../images/gdynia2-s.jpg";
-$fifth: "../images/eifle-s.jpg";
-$sixth: "../images/rimini-s.jpg";
-$seventh: "../images/budapest-s.jpg";
-$eighth: "../images/london-s.jpg";
-$ninth: "../images/gdynia3-s.jpg";
-$tenth: "../images/gdynia3-s.jpg";
-$eleventh: "../images/rome-s.jpg";
-$twelfth: "../images/gdynia2-s.jpg";
+@import 'variables';
 
 section.about {
   .image-wrapper {
     width: fit-content;
     margin-left: 300px;
-    //transform: rotate3d(2, 1, -2, 55deg);
-    transform: rotate3d(3, 2, -2, 55deg);
-    box-shadow: -12px 22px 53px 0px rgba($black, 0.4);
-    display: flex;
-    float: right;
     position: absolute;
     right: -100px;
+    display: flex;
+    float: right;
+    box-shadow: -12px 22px 53px 0px rgba($black, 0.4);
+    transform: rotate3d(3, 2, -2, 55deg);
     opacity: 0;
 
-    @media only screen and (max-width: 667px) {
-      display: none !important;
-    }
-
-    @media only screen and (max-width: 812px) and (orientation: landscape) {
+    @media screen and (max-width: $iphone678), screen and (max-width: $iphoneX) and (orientation: landscape) {
       display: none !important;
     }
 
     &--first {
       bottom: 600px;
 
-      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      @media only screen and (min-width: $ipad) and (max-width: $ipadPro) {
         top: 0;
         bottom: auto;
       }
@@ -47,7 +28,7 @@ section.about {
     &--second {
       bottom: 400px;
 
-      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      @media only screen and (min-width: $ipad) and (max-width: $ipadPro) {
         display: none !important;
       }
     }
@@ -55,7 +36,7 @@ section.about {
     &--third {
       bottom: 200px;
 
-      @media only screen and (width: 768px) {
+      @media only screen and (width: $ipad) {
         display: none !important;
       }
     }
