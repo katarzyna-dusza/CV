@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 section {
   height: 100%;
@@ -10,8 +10,7 @@ section {
     width: 100%;
     position: absolute;
     top: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 
     .text {
       height: 100vh;
@@ -30,8 +29,8 @@ section {
       }
 
       h5 {
-        font-weight: 100;
         margin: 0;
+        font-weight: 100;
       }
 
       h5.time {
@@ -48,8 +47,8 @@ section {
 
       &__line {
         width: 20px;
-        border-bottom: 1px solid;
         padding-bottom: 20px;
+        border-bottom: 1px solid;
       }
 
       &__header-list {
@@ -63,8 +62,8 @@ section {
 
       @media only screen and (max-width: 667px) {
         width: 90% !important;
-        padding: 0 !important;
         margin-left: 5% !important;
+        padding: 0 !important;
         font-size: 1em !important;
         font-weight: normal !important;
 
@@ -78,15 +77,11 @@ section {
         }
       }
 
-      @media only screen and (max-width: 320px) {
+      @media screen and (max-width: $iphone5SE), screen and (max-width: $iphone678) and (orientation: landscape) {
         font-size: 0.9em !important;
       }
 
-      @media only screen and (max-width: 667px) and (orientation: landscape) {
-        font-size: 0.9em !important;
-      }
-
-      @media only screen and (max-width: 812px) and (orientation: landscape) {
+      @media only screen and (max-width: $iphoneX) and (orientation: landscape) {
         font-size: 1em !important;
       }
     }
@@ -100,15 +95,15 @@ section {
       width: 100%;
       position: fixed;
       top: 50%;
-      transform: translateY(-50%);
       text-align: center;
+      transform: translateY(-50%);
 
       h1 {
         font-size: 60px;
         font-weight: 400;
 
 
-        @media only screen and (max-width: 667px) {
+        @media only screen and (max-width: $iphone678) {
           padding: 0 70px !important;
           font-size: 40px;
         }
@@ -118,7 +113,7 @@ section {
         font-size: 30px;
         font-weight: 100;
 
-        @media only screen and (max-width: 667px) {
+        @media only screen and (max-width: $iphone678) {
           font-size: 20px;
         }
       }
@@ -141,15 +136,15 @@ section {
       font-size: 1.5em;
       transform: scale(0.5);
 
-      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      @media only screen and (min-width: $ipad) and (max-width: $ipadPro) {
         width: 70%;
         margin-left: 15%;
       }
 
-      @media only screen and (max-width: 812px) and (orientation: landscape) {
+      @media only screen and (max-width: $iphoneX) and (orientation: landscape) {
         width: 90% !important;
-        padding: 0 !important;
         margin-left: 5% !important;
+        padding: 0 !important;
       }
     }
   }
@@ -165,8 +160,6 @@ section {
     position: fixed;
     top: 0;
     left: 100%;
-    /*// z prawej*/
-    /*left: -100%;*/
   }
 
   &.experience.xsolve {
@@ -192,11 +185,7 @@ section {
       a {
         text-decoration: none;
 
-        @media only screen and (max-width: 667px) and (orientation: landscape) {
-          display: none !important;
-        }
-
-        @media only screen and (max-width: 812px) and (orientation: landscape) {
+        @media screen and (max-width: $iphone678), screen and (max-width: $iphoneX) and (orientation: landscape) {
           display: none !important;
         }
       }
@@ -206,11 +195,7 @@ section {
       margin-top: 1em;
       font-style: italic;
 
-      @media only screen and (max-width: 667px) and (orientation: landscape) {
-        display: none !important;
-      }
-
-      @media only screen and (max-width: 812px) and (orientation: landscape) {
+      @media screen and (max-width: $iphone678), screen and (max-width: $iphoneX) and (orientation: landscape) {
         display: none !important;
       }
     }
@@ -245,7 +230,7 @@ section {
       font-style: italic;
     }
 
-    @media only screen and (max-width: 667px) and (orientation: landscape) {
+    @media only screen and (max-width: $iphone678) and (orientation: landscape) {
       font-size: 0.9em !important;
     }
   }
@@ -266,7 +251,7 @@ section {
       width: 60%;
     }
 
-    @media only screen and (max-width: 667px) {
+    @media only screen and (max-width: $iphone678) {
       margin-top: 0;
 
       .description {
@@ -278,7 +263,7 @@ section {
       }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    @media only screen and (min-width: $ipad) and (max-width: $ipadPro) {
       .description {
         width: 100%;
       }
@@ -288,7 +273,7 @@ section {
       }
     }
 
-    @media only screen and (max-width: 812px) and (orientation: landscape) {
+    @media only screen and (max-width: $iphoneX) and (orientation: landscape) {
       margin-top: 0;
 
       .description {
@@ -348,19 +333,19 @@ section {
       }
     }
 
-    @media only screen and (width: 768px) {
+    @media only screen and (width: $ipad) {
       p {
         font-size: 22px;
       }
     }
 
-    @media only screen and (max-width: 667px) {
+    @media only screen and (max-width: $iphone678) {
       p {
         font-size: 16px;
       }
     }
 
-    @media only screen and (max-width: 320px) {
+    @media only screen and (max-width: $iphone5SE) {
       p {
         font-size: 14px;
       }
