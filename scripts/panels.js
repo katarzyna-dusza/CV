@@ -1,27 +1,27 @@
-function scrollToElement(element) {
+const scrollToElement = (element) => {
     $('html, body').animate({
         scrollTop: element.offset().top
     }, 1000);
 }
 
-function goTo(navElement) {
+const goTo = (navElement) => {
     const aboutElement = $('.' + navElement.id);
     scrollToElement(aboutElement);
 }
 
-function clearNavigationElements() {
+const clearNavigationElements = () => {
     $('.panel__elem--navigation').each(function(index, elem) {
         $('.panel__elem--navigation').eq(index).removeClass('current');
     })
 }
 
-function clearLocationElements() {
+const clearLocationElements = () => {
     $('.panel__elem--location').each(function(index, elem) {
         $('.panel__elem--location > i').eq(index).text('radio_button_unchecked');
     })
 }
 
-function fillPreviousLocationElements(currentIndex) {
+const fillPreviousLocationElements = (currentIndex) => {
     $('.panel__elem--location').each(function(index, elem) {
         if (currentIndex >= index) {
             $('.panel__elem--location > i').eq(index).text('radio_button_checked');
@@ -29,7 +29,7 @@ function fillPreviousLocationElements(currentIndex) {
     })
 }
 
-function currentNavigationElement(currentPosition) {
+const currentNavigationElement = (currentPosition) => {
     const about = $('.about').offset().top;
     const sapFirst = $('.experience.sap-first').offset().top;
     const aeiFirst = $('.education.aei-first').offset().top;
@@ -57,7 +57,7 @@ function currentNavigationElement(currentPosition) {
     }
 }
 
-function currentLocationElement(currentPosition) {
+const currentLocationElement = (currentPosition) => {
     const icon = $('.panel__elem--location > i');
     const about = $('.about').offset().top;
     const sapFirst = $('.experience.sap-first').offset().top;
@@ -133,8 +133,10 @@ function currentLocationElement(currentPosition) {
     fillPreviousLocationElements(currentIndex);
 }
 
-$(window).scroll(function() {
+$(window).scroll(() => {
     const currentPosition = $(document).scrollTop();
     currentNavigationElement(currentPosition);
     currentLocationElement(currentPosition);
 });
+
+window.goTo = goTo;

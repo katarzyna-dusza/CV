@@ -1,11 +1,15 @@
 const path = require('path');
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// import london from './images/london.JPG';
-
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: './index.html'
+});
+
+const providePluginJQuery = new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery'
 });
 
 // const copyWebpackPlugin = new CopyWebpackPlugin([
@@ -14,17 +18,12 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: {
-        js: ['./main.js', './main-m.js'],
+        js: ['./main.js', './main-m.js', './scripts/panels.js'],
         css: './styles/main.scss'
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
-    },
-    resolve: {
-        alias: {
-            "jquery": path.resolve('node_modules', 'jquery/src/tilt.jquery.js')
-        },
     },
     module: {
         rules: [
@@ -44,12 +43,23 @@ module.exports = {
                         options: {}
                     }
                 ]
+            },
+            {
+              test: /\.js$/,
+              exclude: /(node_modules)/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['@babel/preset-env']
+                }
+              }
             }
         ]
     },
     plugins: [
         // copyWebpackPlugin,
-        htmlWebpackPlugin
+        htmlWebpackPlugin,
+        providePluginJQuery
     ],
     mode: 'development'
 };
