@@ -31,6 +31,10 @@ section.about {
       display: none !important;
     }
 
+    @media only screen and (max-width: 812px) and (orientation: landscape) {
+      display: none !important;
+    }
+
     &--first {
       bottom: 600px;
 

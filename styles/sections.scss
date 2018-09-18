@@ -65,15 +65,29 @@ section {
         width: 90% !important;
         padding: 0 !important;
         margin-left: 5% !important;
-        font-size: 1.1em !important;
+        font-size: 1em !important;
+        font-weight: normal !important;
 
         h1 {
           font-size: 1.2em;
+          font-weight: 600;
+        }
+
+        h5 {
+          font-weight: 400 !important;
         }
       }
 
       @media only screen and (max-width: 320px) {
         font-size: 0.9em !important;
+      }
+
+      @media only screen and (max-width: 667px) and (orientation: landscape) {
+        font-size: 0.9em !important;
+      }
+
+      @media only screen and (max-width: 812px) and (orientation: landscape) {
+        font-size: 1em !important;
       }
     }
   }
@@ -131,6 +145,12 @@ section {
         width: 70%;
         margin-left: 15%;
       }
+
+      @media only screen and (max-width: 812px) and (orientation: landscape) {
+        width: 90% !important;
+        padding: 0 !important;
+        margin-left: 5% !important;
+      }
     }
   }
 
@@ -171,12 +191,28 @@ section {
 
       a {
         text-decoration: none;
+
+        @media only screen and (max-width: 667px) and (orientation: landscape) {
+          display: none !important;
+        }
+
+        @media only screen and (max-width: 812px) and (orientation: landscape) {
+          display: none !important;
+        }
       }
     }
 
     h5.small-header {
       margin-top: 1em;
       font-style: italic;
+
+      @media only screen and (max-width: 667px) and (orientation: landscape) {
+        display: none !important;
+      }
+
+      @media only screen and (max-width: 812px) and (orientation: landscape) {
+        display: none !important;
+      }
     }
   }
 
@@ -207,6 +243,10 @@ section {
 
     h5.small-header {
       font-style: italic;
+    }
+
+    @media only screen and (max-width: 667px) and (orientation: landscape) {
+      font-size: 0.9em !important;
     }
   }
 
@@ -245,6 +285,18 @@ section {
 
       img {
         width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 812px) and (orientation: landscape) {
+      margin-top: 0;
+
+      .description {
+        width: 100%;
+      }
+
+      img {
+        display: none !important;
       }
     }
   }

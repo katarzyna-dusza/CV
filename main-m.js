@@ -1,5 +1,5 @@
 (function() {
-  if (/Mobi/.test(navigator.userAgent)) {
+  if (/Mobi|Android/i.test(navigator.userAgent)) {
     $('.scrollable-sections').css({
         'overflow': 'scroll'
     });
@@ -28,10 +28,6 @@
         const zooming = (currentPosition / windowHeight) * 2;
         const zooming2 = (currentPosition / windowHeight);
         const zooming3 = (currentPosition / windowHeight) / 2;
-
-        console.log(currentPosition - aeiFirst);
-        console.log(windowHeight);
-        console.log(currentPosition - aeiFirst > 5 * windowHeight)
 
         if (currentPosition - about >= windowHeight) {
             $('.about > div').css({
