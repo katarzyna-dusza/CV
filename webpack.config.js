@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: './index.html'
@@ -12,14 +12,16 @@ const providePluginJQuery = new webpack.ProvidePlugin({
   jQuery: 'jquery'
 });
 
-// const copyWebpackPlugin = new CopyWebpackPlugin([
-//     { from: './images', to: './images' }
-// ]);
+const copyWebpackPlugin = new CopyWebpackPlugin([
+    { from: './images', to: './images' },
+    { from: './webfonts', to: './webfonts' },
+    { from: './styles/all.min.css', to: './styles/all.min.css' }
+]);
 
 module.exports = {
     entry: {
         js: ['./scripts/setCss.js', './scripts/main.js', './scripts/main-mobile.js', './scripts/panels.js'],
-        css: './styles/main.scss'
+        css: ['./styles/main.scss']
     },
     output: {
         filename: '[name].js',
@@ -57,7 +59,7 @@ module.exports = {
         ]
     },
     plugins: [
-        // copyWebpackPlugin,
+        copyWebpackPlugin,
         htmlWebpackPlugin,
         providePluginJQuery
     ],
