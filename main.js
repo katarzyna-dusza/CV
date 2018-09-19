@@ -136,7 +136,7 @@ $(window).on('load', function() {
         }
 
         if ($('.education.aei-second').offset().left > 0) {
-          setCss.transformScaleZoom('education.aei-second', setCss.countedZoom('experience.aei-second'));
+          setCss.transformScaleZoom('education.aei-second', setCss.countedZoom('education.aei-second'));
         }
 
         if ($('.education.aei-second').offset().left === 0) {

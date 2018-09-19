@@ -1,3 +1,4 @@
+/* setting styles */
 export const positionFixedChild = (section) => {
   $(`.${section} > div`).css({
       'position': 'fixed'
@@ -46,10 +47,11 @@ export const opacity = (section, zooming) => {
   });
 }
 
-
-
-
-// helpers
+/* helpers */
 export const countedZoom = (section) => {
   return 1 - ($(`.${section}`).offset().left / window.innerWidth)
+}
+
+export const isMobi = () => {
+  return /Mobi|Android/i.test(navigator.userAgent);
 }

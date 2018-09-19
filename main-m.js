@@ -28,8 +28,6 @@ import * as setCss from './scripts/setCss';
         const elementPosition = windowWidth - scrollPercent * windowWidth;
 
         const zooming = (currentPosition / windowHeight) * 2;
-        const zooming2 = (currentPosition / windowHeight);
-        const zooming3 = (currentPosition / windowHeight) / 2;
 
         if (currentPosition - about >= windowHeight) {
           setCss.positionFixedChild('about');
