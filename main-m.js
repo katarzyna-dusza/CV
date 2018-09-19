@@ -1,3 +1,5 @@
+import * as setCss from './scripts/setCss';
+
 (function() {
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     $('.scrollable-sections').css({
@@ -30,336 +32,186 @@
         const zooming3 = (currentPosition / windowHeight) / 2;
 
         if (currentPosition - about >= windowHeight) {
-            $('.about > div').css({
-                'position': 'fixed'
-            });
-
-            $('.about > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixedChild('about');
+          setCss.transformScaleFixed('about');
         }
 
         if ( currentPosition - about < windowHeight ) {
-            $('.about > div').css({
-                'position': 'absolute'
-            });
-            $('.about > .content > .text').css({
-                'transform': 'scale(' + (zooming -1) + ')'
-            });
+          setCss.positionAbsoluteChild('about');
+          setCss.transformScaleZoom('about', zooming - 1);
         }
 
         if ( currentPosition - sapFirst >= 2 * windowHeight ) {
-            $('.experience.sap-first > div').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixedChild('experience.sap-first');
+          setCss.transformScaleFixed('experience.sap-first');
 
-            $('.experience.sap-first > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (elementPosition >= 0) {
+            setCss.left('experience.sap-second', elementPosition);
+          }
 
-            if (elementPosition >= 0) {
-                sapSecond.css({
-                    'left': elementPosition
-                });
-            }
-
-            if (elementPosition < 25) {
-                sapSecond.css({
-                    'left': 0
-                });
-            }
-        }
-
-        if ( currentPosition - sapFirst < 2 * windowHeight ) {
-            $('.experience.sap-first > div').css({
-                'position': 'absolute'
-            });
-            $('.experience.sap-first').css({
-                'padding-bottom': 3 * window.innerHeight
-            });
-
-            $('.experience.sap-first > .content > .text').css({
-                'transform': 'scale(' + (zooming -3) + ')'
-            });
-
-            sapSecond.css({
-                'left': '100%'
-            });
-        }
-
-        if ($('.experience.sap-second').offset().left === 0) {
-            $('.experience.sap-second').css({
-                'position': 'fixed'
-            });
-
-            $('.experience.sap-second > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-
-            if (windowWidth + elementPosition >= 0) {
-                xsolve.css({
-                    'left':  windowWidth + elementPosition
-                });
-            }
-
-            if (windowWidth + elementPosition < 25) {
-                xsolve.css({
-                    'left': 0
-                });
-            }
-        }
-
-        if ($('.experience.sap-second').offset().left > 0) {
-            xsolve.css({
-                'left': '100%'
-            });
-
-            $('.experience.sap-second > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.sap-second').offset().left / window.innerWidth)) + ')'
-            });
-        }
-
-        if ($('.experience.xsolve').offset().left === 0) {
-            $('.experience.xsolve').css({
-                'position': 'fixed'
-            });
-
-            $('.experience.xsolve > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-
-            if (2 * windowWidth + elementPosition >= 0) {
-                autea.css({
-                    'left': 2 * windowWidth + elementPosition
-                });
-            }
-
-            if (2 * windowWidth + elementPosition < 25) {
-                autea.css({
-                    'left': 0
-                });
-            }
-        }
-
-        if ($('.experience.xsolve').offset().left > 0) {
-            autea.css({
-                'left': '100%'
-            });
-
-            $('.experience.xsolve > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.xsolve').offset().left / window.innerWidth)) + ')'
-            });
-        }
-
-        if ($('.experience.autea').offset().left > 0) {
-            $('.experience.autea > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.autea').offset().left / window.innerWidth)) + ')'
-            });
-        }
-
-        if ($('.experience.autea').offset().left === 0) {
-            $('.experience.autea').css({
-                'position': 'fixed'
-            });
-
-            $('.experience.autea > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-        }
-
-
-
-        if ( currentPosition - aeiFirst >= 6 * windowHeight ) {
-            $('.education.aei-first > div').css({
-                'position': 'fixed'
-            });
-
-            $('.education.aei-first > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-
-            if (4 * windowWidth + elementPosition >= 0) {
-                aeiSecond.css({
-                    'left': 4 * windowWidth + elementPosition
-                });
-            }
-
-            if (4 * windowWidth + elementPosition < 25) {
-                aeiSecond.css({
-                    'left': 0
-                });
-            }
-        }
-
-        if ( currentPosition - aeiFirst < 6 * windowHeight ) {
-            $('.education.aei-first > div').css({
-                'position': 'absolute'
-            });
-            $('.education.aei-first').css({
-                'padding-bottom': window.innerHeight
-            });
-
-            if (zooming -11 < 1) {
-              $('.education.aei-first > .content > .text').css({
-                  'transform': 'scale(' + (zooming -11) + ')'
-              });
-            }
-
-            aeiSecond.css({
-                'left': '100%'
-            });
-        }
-
-        if ($('.education.aei-second').offset().left > 0) {
-            $('.education.aei-second > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.education.aei-second').offset().left / window.innerWidth)) + ')'
-            });
-        }
-
-        if ($('.education.aei-second').offset().left === 0) {
-            $('.education.aei-second').css({
-                'position': 'fixed'
-            });
-
-            $('.education.aei-second > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-        }
-
-
-
-        if ( currentPosition - skills >= 8 * windowHeight ) {
-            $('.skills > div').css({
-                'position': 'fixed'
-            });
-
-            $('.skills > .content > .text').css({
-                'transform': 'scale(1)'
-            });
-        }
-
-        if ( currentPosition - skills < 8 * windowHeight ) {
-          $('.skills > div').css({
-              'position': 'absolute'
-          });
-
-          if (zooming -15 < 1) {
-            $('.skills > .content > .text').css({
-                'transform': 'scale(' + (zooming -15) + ')'
-            });
+          if (elementPosition < 25) {
+            setCss.left('experience.sap-second', 0);
           }
         }
 
+        if ( currentPosition - sapFirst < 2 * windowHeight ) {
+          setCss.positionAbsoluteChild('experience.sap-first');
+          setCss.transformScaleZoom('experience.sap-first', zooming - 3);
+          setCss.paddingBottom('experience.sap-first', 3 * window.innerHeight);
+          setCss.left('experience.sap-second', '100%');
+        }
+
+        if ($('.experience.sap-second').offset().left === 0) {
+          setCss.positionFixed('experience.sap-second');
+          setCss.transformScaleFixed('experience.sap-second');
+
+          if (windowWidth + elementPosition >= 0) {
+            setCss.left('experience.xsolve', windowWidth + elementPosition);
+          }
+
+          if (windowWidth + elementPosition < 25) {
+            setCss.left('experience.xsolve', 0);
+          }
+        }
+
+        if ($('.experience.sap-second').offset().left > 0) {
+          setCss.transformScaleZoom('experience.sap-second', setCss.countedZoom('experience.sap-second'));
+          setCss.left('experience.xsolve', '100%');
+        }
+
+        if ($('.experience.xsolve').offset().left === 0) {
+          setCss.positionFixed('experience.xsolve');
+          setCss.transformScaleFixed('experience.xsolve');
+
+          if (2 * windowWidth + elementPosition >= 0) {
+            setCss.left('experience.autea', 2 * windowWidth + elementPosition);
+          }
+
+          if (2 * windowWidth + elementPosition < 25) {
+            setCss.left('experience.autea', 0);
+          }
+        }
+
+        if ($('.experience.xsolve').offset().left > 0) {
+          setCss.transformScaleZoom('experience.xsolve', setCss.countedZoom('experience.xsolve'));
+          setCss.left('experience.autea', '100%');
+        }
+
+        if ($('.experience.autea').offset().left > 0) {
+          setCss.transformScaleZoom('experience.autea', setCss.countedZoom('experience.autea'));
+        }
+
+        if ($('.experience.autea').offset().left === 0) {
+          setCss.positionFixed('experience.autea');
+          setCss.transformScaleFixed('experience.autea');
+        }
+
+        if ( currentPosition - aeiFirst >= 6 * windowHeight ) {
+          setCss.positionFixedChild('education.aei-first');
+          setCss.transformScaleFixed('education.aei-first');
+
+          if (4 * windowWidth + elementPosition >= 0) {
+            setCss.left('education.aei-second', 4 * windowWidth + elementPosition);
+          }
+
+          if (4 * windowWidth + elementPosition < 25) {
+            setCss.left('education.aei-second', 0);
+          }
+        }
+
+        if ( currentPosition - aeiFirst < 6 * windowHeight ) {
+          setCss.positionAbsoluteChild('education.aei-first');
+          setCss.paddingBottom('education.aei-first', window.innerHeight);
+          setCss.left('education.aei-second', '100%');
+
+          if (zooming -11 < 1) {
+            setCss.transformScaleZoom('education.aei-first', zooming  - 11);
+          }
+        }
+
+        if ($('.education.aei-second').offset().left > 0) {
+          setCss.transformScaleZoom('experience.aei-second', setCss.countedZoom('experience.aei-second'));
+        }
+
+        if ($('.education.aei-second').offset().left === 0) {
+          setCss.positionFixed('education.aei-second');
+          setCss.transformScaleFixed('education.aei-second');
+        }
+
+        if ( currentPosition - skills >= 8 * windowHeight ) {
+          setCss.positionFixedChild('skills');
+          setCss.transformScaleFixed('skills');
+        }
+
+        if ( currentPosition - skills < 8 * windowHeight ) {
+          setCss.positionAbsoluteChild('skills');
+
+          if (zooming -15 < 1) {
+            setCss.transformScaleZoom('skills', zooming - 15);
+          }
+        }
 
         if ( currentPosition - openwhisk >= 9 * windowHeight) {
-            $('.portfolio.openwhisk > div').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixedChild('portfolio.openwhisk');
+          setCss.transformScaleFixed('portfolio.openwhisk');
 
-            $('.portfolio.openwhisk > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (7 * windowWidth + elementPosition >= 0) {
+            setCss.left('portfolio.blog', 7 * windowWidth + elementPosition);
+          }
 
-            if (7 * windowWidth + elementPosition >= 0) {
-                blog.css({
-                    'left': 7 * windowWidth + elementPosition
-                });
-            }
-
-            if (7 * windowWidth + elementPosition < 25) {
-                blog.css({
-                    'left': 0
-                });
-            }
-
+          if (7 * windowWidth + elementPosition < 25) {
+            setCss.left('portfolio.blog', 0);
+          }
         }
 
         if ( currentPosition - openwhisk < 9 * windowHeight ) {
-            $('.portfolio.openwhisk > div').css({
-                'position': 'absolute'
-            });
-            $('.portfolio.openwhisk').css({
-                'padding-bottom': 2 * window.innerHeight
-            });
-            blog.css({
-                'left': '100%'
-            });
+          setCss.positionAbsoluteChild('portfolio.openwhisk');
+          setCss.paddingBottom('portfolio.openwhisk', 2 * window.innerHeight);
+          setCss.left('portfolio.blog', '100%');
 
-            if (zooming -17 < 1) {
-              $('.portfolio.openwhisk > .content > .text').css({
-                  'transform': 'scale(' + (zooming -17) + ')'
-              });
-            }
+          if (zooming -17 < 1) {
+            setCss.transformScaleZoom('portfolio.openwhisk', zooming - 17);
+          }
         }
 
         if ($('.portfolio.blog').offset().left === 0) {
-            $('.portfolio.blog').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixed('portfolio.blog');
+          setCss.transformScaleFixed('portfolio.blog');
 
-            $('.portfolio.blog > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (8 * windowWidth + elementPosition >= 0) {
+            setCss.left('portfolio.other', 8 * windowWidth + elementPosition);
+          }
 
-            if (8 * windowWidth + elementPosition >= 0) {
-                other.css({
-                    'left':  8 * windowWidth + elementPosition
-                });
-            }
-
-            if (8 * windowWidth + elementPosition < 25) {
-                other.css({
-                    'left': 0
-                });
-            }
+          if (8 * windowWidth + elementPosition < 25) {
+            setCss.left('portfolio.other', 0);
+          }
         }
 
         if ($('.portfolio.blog').offset().left > 0) {
-            other.css({
-                'left': '100%'
-            });
-
-            $('.portfolio.blog > .content > .text').css({
-                'transform': 'scale(' + (zooming -19) + ')'
-            });
+          setCss.transformScaleZoom('portfolio.blog', zooming - 19);
+          setCss.left('portfolio.other', '100%');
         }
 
         if ($('.portfolio.other').offset().left === 0) {
-            $('.portfolio.other').css({
-                'position': 'fixed'
-            });
-
-            $('.portfolio.other > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixed('portfolio.other');
+          setCss.transformScaleFixed('portfolio.other');
         }
 
         if ($('.portfolio.other').offset().left > 0) {
-            $('.portfolio.other > .content > .text').css({
-                'transform': 'scale(' + (zooming -21) + ')'
-            });
+            setCss.transformScaleZoom('portfolio.other', zooming - 21);
         }
 
-        if ( currentPosition - openwhisk >= 15 * windowHeight ) { //currentPosition >= contact
-            $('.contact > div').css({
-                'position': 'fixed'
-            });
-
-            $('.contact > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+        if ( currentPosition - openwhisk >= 15 * windowHeight ) {
+          setCss.positionFixedChild('contact');
+          setCss.transformScaleFixed('contact');
         }
 
         if ( currentPosition - openwhisk < 15 * windowHeight ) {
-            $('.contact > div').css({
-                'position': 'absolute'
-            });
+          setCss.positionAbsoluteChild('contact');
 
-            if (zooming -23 < 1) {
-              $('.contact > .content > .text').css({
-                  'transform': 'scale(' + (zooming -23) + ')'
-              });
-            }
+          if (zooming -23 < 1) {
+            setCss.transformScaleZoom('contact', zooming - 23);
+          }
         }
     });
   }

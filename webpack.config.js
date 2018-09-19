@@ -18,7 +18,7 @@ const providePluginJQuery = new webpack.ProvidePlugin({
 
 module.exports = {
     entry: {
-        js: ['./main.js', './main-m.js', './scripts/panels.js'],
+        js: ['./scripts/setCss.js', './main.js', './main-m.js', './scripts/panels.js'],
         css: './styles/main.scss'
     },
     output: {

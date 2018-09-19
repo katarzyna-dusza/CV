@@ -1,17 +1,17 @@
+import * as setCss from './scripts/setCss';
+
 $(window).on('load', function() {
   $('.loader').fadeOut();
 });
 
 (function() {
-    function addZoomAnimation(zooming) {
-        $('section > div.content').each(function(index, value) {
-            if (value.hasAttribute('zoom')) {
-                $('section > div.content').eq(index).css({
-                    'transform': 'scale(' + zooming + ',' + zooming + ')'
-                });
-            }
-        });
-    }
+  const isOnViewPort = (selector) => {
+    var elementTop = $(selector).offset().top;
+    var elementBottom = elementTop + $(selector).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+  };
 
     $(window).scroll(function() {
         const about = $('.about').offset().top;
@@ -35,343 +35,189 @@ $(window).on('load', function() {
         const elementPosition = windowWidth - scrollPercent * windowWidth;
 
         const zooming = (currentPosition / windowHeight) * 2;
-        const zooming2 = (currentPosition / windowHeight);
-        const zooming3 = (currentPosition / windowHeight) / 2;
 
         if ( currentPosition >= about ) {
-            $('.about > div').css({
-                'position': 'fixed'
-            });
-
-            $('.about > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixedChild('about');
+          setCss.transformScaleFixed('about');
         }
 
         if ( currentPosition < about ) {
-            $('.about > div').css({
-                'position': 'absolute'
-            });
-            $('.about > .content > .text').css({
-                'transform': 'scale(' + (zooming - 1) + ')'
-            });
-            $('.about > .content > .image-wrapper').css({
-                'opacity': zooming / 2
-            });
+          setCss.positionAbsoluteChild('about');
+          setCss.transformScaleZoom('about', zooming  - 1);
+          setCss.opacity('about', zooming);
         }
 
         if ( currentPosition >= sapFirst ) {
-            $('.experience.sap-first > div').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixedChild('experience.sap-first');
+          setCss.transformScaleFixed('experience.sap-first');
 
-            $('.experience.sap-first > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (elementPosition >= 0) {
+            setCss.left('experience.sap-second', elementPosition);
+          }
 
-            if (elementPosition >= 0) {
-                sapSecond.css({
-                    'left': elementPosition
-                });
-            }
-
-            if (elementPosition < 25) {
-                sapSecond.css({
-                    'left': 0
-                });
-            }
+          if (elementPosition < 25) {
+            setCss.left('experience.sap-second', 0);
+          }
         }
 
         if ( currentPosition < sapFirst ) {
-            $('.experience.sap-first > div').css({
-                'position': 'absolute'
-            });
-            $('.experience.sap-first').css({
-                'padding-bottom': 3 * window.innerHeight
-            });
-
-            $('.experience.sap-first > .content > .text').css({
-                'transform': 'scale(' + (zooming -3) + ')'
-            });
-
-            sapSecond.css({
-                'left': '100%'
-            });
+          setCss.positionAbsoluteChild('experience.sap-first');
+          setCss.transformScaleZoom('experience.sap-first', zooming - 3);
+          setCss.paddingBottom('experience.sap-first', 3 * window.innerHeight);
+          setCss.left('experience.sap-second', '100%');
         }
 
         if ($('.experience.sap-second').offset().left === 0) {
-            $('.experience.sap-second').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixed('experience.sap-second');
+          setCss.transformScaleFixed('experience.sap-second');
 
-            $('.experience.sap-second > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (windowWidth + elementPosition >= 0) {
+            setCss.left('experience.xsolve', windowWidth + elementPosition);
+          }
 
-            if (windowWidth + elementPosition >= 0) {
-                xsolve.css({
-                    'left':  windowWidth + elementPosition
-                });
-            }
-
-            if (windowWidth + elementPosition < 25) {
-                xsolve.css({
-                    'left': 0
-                });
-            }
+          if (windowWidth + elementPosition < 25) {
+            setCss.left('experience.xsolve', 0);
+          }
         }
 
         if ($('.experience.sap-second').offset().left > 0) {
-            xsolve.css({
-                'left': '100%'
-            });
-
-            $('.experience.sap-second > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.sap-second').offset().left / window.innerWidth)) + ')'
-            });
-
+          setCss.transformScaleZoom('experience.sap-second', setCss.countedZoom('experience.sap-second'));
+          setCss.left('experience.xsolve', '100%');
         }
 
         if ($('.experience.xsolve').offset().left === 0) {
-            $('.experience.xsolve').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixed('experience.xsolve');
+          setCss.transformScaleFixed('experience.xsolve');
 
-            $('.experience.xsolve > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (2 * windowWidth + elementPosition >= 0) {
+            setCss.left('experience.autea', 2 * windowWidth + elementPosition);
+          }
 
-            if (2 * windowWidth + elementPosition >= 0) {
-                autea.css({
-                    'left': 2 * windowWidth + elementPosition
-                });
-            }
-
-            if (2 * windowWidth + elementPosition < 25) {
-                autea.css({
-                    'left': 0
-                });
-            }
+          if (2 * windowWidth + elementPosition < 25) {
+            setCss.left('experience.autea', 0);
+          }
         }
 
         if ($('.experience.xsolve').offset().left > 0) {
-            autea.css({
-                'left': '100%'
-            });
-
-            $('.experience.xsolve > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.xsolve').offset().left / window.innerWidth)) + ')'
-            });
+          setCss.transformScaleZoom('experience.xsolve', setCss.countedZoom('experience.xsolve'));
+          setCss.left('experience.autea', '100%');
         }
 
         if ($('.experience.autea').offset().left > 0) {
-            $('.experience.autea > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.experience.autea').offset().left / window.innerWidth)) + ')'
-            });
+          setCss.transformScaleZoom('experience.autea', setCss.countedZoom('experience.autea'));
         }
 
         if ($('.experience.autea').offset().left === 0) {
-            $('.experience.autea').css({
-                'position': 'fixed'
-            });
-
-            $('.experience.autea > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixed('experience.autea');
+          setCss.transformScaleFixed('experience.autea');
         }
 
         if ( currentPosition >= aeiFirst ) {
-            $('.education.aei-first > div').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixedChild('education.aei-first');
+          setCss.transformScaleFixed('education.aei-first');
 
-            $('.education.aei-first > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (4 * windowWidth + elementPosition >= 0) {
+            setCss.left('education.aei-second', 4 * windowWidth + elementPosition);
+          }
 
-            if (4 * windowWidth + elementPosition >= 0) {
-                aeiSecond.css({
-                    'left': 4 * windowWidth + elementPosition
-                });
-            }
-
-            if (4 * windowWidth + elementPosition < 25) {
-                aeiSecond.css({
-                    'left': 0
-                });
-            }
+          if (4 * windowWidth + elementPosition < 25) {
+            setCss.left('education.aei-second', 0);
+          }
         }
 
         if ( currentPosition < aeiFirst ) {
-            $('.education.aei-first > div').css({
-                'position': 'absolute'
-            });
-            $('.education.aei-first').css({
-                'padding-bottom': window.innerHeight
-            });
-            aeiSecond.css({
-                'left': '100%'
-            });
+          setCss.positionAbsoluteChild('education.aei-first');
+          setCss.paddingBottom('education.aei-first', window.innerHeight);
+          setCss.left('education.aei-second', '100%');
 
-            if (zooming -11 < 1) {
-              $('.education.aei-first > .content > .text').css({
-                  'transform': 'scale(' + (zooming -11) + ')'
-              });
-            }
-
-            // $('.experience.sap-second').css('position', 'fixed');
-            // $('.experience.sap-second').css('left', '0');
+          if (zooming -11 < 1) {
+            setCss.transformScaleZoom('education.aei-first', zooming  - 11);
+          }
         }
 
         if ($('.education.aei-second').offset().left > 0) {
-            $('.education.aei-second > .content > .text').css({
-                'transform': 'scale(' + (1 - ($('.education.aei-second').offset().left / window.innerWidth)) + ')'
-            });
+          setCss.transformScaleZoom('education.aei-second', setCss.countedZoom('experience.aei-second'));
         }
 
         if ($('.education.aei-second').offset().left === 0) {
-            $('.education.aei-second').css({
-                'position': 'fixed'
-            });
-
-            $('.education.aei-second > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixed('education.aei-second');
+          setCss.transformScaleFixed('education.aei-second');
         }
 
         if (currentPosition >= skills) {
-            $('.skills > div').css({
-                'position': 'fixed'
-            });
-
-            $('.skills > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixedChild('skills');
+          setCss.transformScaleFixed('skills');
         }
 
         if ( currentPosition < skills ) {
-            $('.skills > div').css({
-                'position': 'absolute'
-            });
+          setCss.positionAbsoluteChild('skills');
 
-            if (zooming -15 < 1) {
-              $('.skills > .content > .text').css({
-                  'transform': 'scale(' + (zooming -15) + ')'
-              });
-            }
+          if (zooming -15 < 1) {
+            setCss.transformScaleZoom('skills', zooming - 15);
+          }
         }
 
         if (currentPosition >= openwhisk) {
-            $('.portfolio.openwhisk > div').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixedChild('portfolio.openwhisk');
+          setCss.transformScaleFixed('portfolio.openwhisk');
 
-            $('.portfolio.openwhisk > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (7 * windowWidth + elementPosition >= 0) {
+            setCss.left('portfolio.blog', 7 * windowWidth + elementPosition);
+          }
 
-            if (7 * windowWidth + elementPosition >= 0) {
-                blog.css({
-                    'left': 7 * windowWidth + elementPosition
-                });
-            }
-
-            if (7 * windowWidth + elementPosition < 25) {
-                blog.css({
-                    'left': 0
-                });
-            }
-
+          if (7 * windowWidth + elementPosition < 25) {
+            setCss.left('portfolio.blog', 0);
+          }
         }
 
         if ( currentPosition < openwhisk ) {
-            $('.portfolio.openwhisk > div').css({
-                'position': 'absolute'
-            });
-            $('.portfolio.openwhisk').css({
-                'padding-bottom': 2 * window.innerHeight
-            });
-            blog.css({
-                'left': '100%'
-            });
+          setCss.positionAbsoluteChild('portfolio.openwhisk');
+          setCss.paddingBottom('portfolio.openwhisk', 2 * window.innerHeight);
+          setCss.left('portfolio.blog', '100%');
 
-            if (zooming -17 < 1) {
-              $('.portfolio.openwhisk > .content > .text').css({
-                  'transform': 'scale(' + (zooming -17) + ')'
-              });
-            }
+          if (zooming -17 < 1) {
+            setCss.transformScaleZoom('portfolio.openwhisk', zooming - 17);
+          }
         }
 
         if ($('.portfolio.blog').offset().left === 0) {
-            $('.portfolio.blog').css({
-                'position': 'fixed'
-            });
+          setCss.positionFixed('portfolio.blog');
+          setCss.transformScaleFixed('portfolio.blog');
 
-            $('.portfolio.blog > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          if (8 * windowWidth + elementPosition >= 0) {
+            setCss.left('portfolio.other', 8 * windowWidth + elementPosition);
+          }
 
-            if (8 * windowWidth + elementPosition >= 0) {
-                other.css({
-                    'left':  8 * windowWidth + elementPosition
-                });
-            }
-
-            if (8 * windowWidth + elementPosition < 25) {
-                other.css({
-                    'left': 0
-                });
-            }
+          if (8 * windowWidth + elementPosition < 25) {
+            setCss.left('portfolio.other', 0);
+          }
         }
 
         if ($('.portfolio.blog').offset().left > 0) {
-            other.css({
-                'left': '100%'
-            });
-
-            $('.portfolio.blog > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -19) + ')'
-            });
+          setCss.transformScaleZoom('portfolio.blog', zooming - 19);
+          setCss.left('portfolio.other', '100%');
         }
 
         if ($('.portfolio.other').offset().left === 0) {
-            $('.portfolio.other').css({
-                'position': 'fixed'
-            });
-
-            $('.portfolio.other > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixed('portfolio.other');
+          setCss.transformScaleFixed('portfolio.other');
         }
 
         if ($('.portfolio.other').offset().left > 0) {
-            $('.portfolio.other > .content > .text').css({
-                // 'position': 'absolute'//,
-                'transform': 'scale(' + (zooming -21) + ')'
-            });
+          setCss.transformScaleZoom('portfolio.other', zooming - 21);
         }
 
         if (currentPosition >= contact) {
-            $('.contact > div').css({
-                'position': 'fixed'
-            });
-
-            $('.contact > .content > .text').css({
-                'transform': 'scale(1)'
-            });
+          setCss.positionFixedChild('contact');
+          setCss.transformScaleFixed('contact');
         }
 
         if ( currentPosition < contact ) {
-            $('.contact > div').css({
-                'position': 'absolute'
-            });
+          setCss.positionAbsoluteChild('contact');
 
-            if (zooming -23 < 1) {
-              $('.contact > .content > .text').css({
-                  'transform': 'scale(' + (zooming -23) + ')'
-              });
-            }
+          if (zooming -23 < 1) {
+            setCss.transformScaleZoom('contact', zooming - 23);
+          }
         }
     });
 })();
