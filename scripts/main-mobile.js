@@ -1,4 +1,4 @@
-import * as setCss from './scripts/setCss';
+import * as setCss from './setCss';
 
 (() => {
   if (/Mobi|Android/i.test(navigator.userAgent)) {

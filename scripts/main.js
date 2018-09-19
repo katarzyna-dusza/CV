@@ -1,4 +1,4 @@
-import * as setCss from './scripts/setCss';
+import * as setCss from './setCss';
 
 $(window).on('load', () => {
   $('.loader').fadeOut();
