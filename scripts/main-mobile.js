@@ -121,7 +121,7 @@ import * as setCss from './setCss';
         setCss.paddingBottom('education.aei-first', window.innerHeight);
         setCss.left('education.aei-second', '100%');
 
-        if (zooming -11 < 1) {
+        if (zooming - 11 < 1) {
           setCss.transformScaleZoom('education.aei-first', zooming  - 11);
         }
       }
@@ -143,7 +143,7 @@ import * as setCss from './setCss';
       if (currentPosition - skills < 8 * windowHeight) {
         setCss.positionAbsoluteChild('skills');
 
-        if (zooming -15 < 1) {
+        if (zooming - 15 < 1) {
           setCss.transformScaleZoom('skills', zooming - 15);
         }
       }
@@ -166,7 +166,7 @@ import * as setCss from './setCss';
         setCss.paddingBottom('portfolio.openwhisk', 2 * window.innerHeight);
         setCss.left('portfolio.blog', '100%');
 
-        if (zooming -17 < 1) {
+        if (zooming - 17 < 1) {
           setCss.transformScaleZoom('portfolio.openwhisk', zooming - 17);
         }
       }
@@ -206,7 +206,7 @@ import * as setCss from './setCss';
       if (currentPosition - openwhisk < 15 * windowHeight) {
         setCss.positionAbsoluteChild('contact');
 
-        if (zooming -23 < 1) {
+        if (zooming - 23 < 1) {
           setCss.transformScaleZoom('contact', zooming - 23);
         }
       }
