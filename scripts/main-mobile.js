@@ -127,7 +127,7 @@ import * as setCss from './setCss';
       }
 
       if ($('.education.aei-second').offset().left > 0) {
-        setCss.transformScaleZoom('experience.aei-second', setCss.countedZoom('experience.aei-second'));
+        setCss.transformScaleZoom('education.aei-second', setCss.countedZoom('education.aei-second'));
       }
 
       if ($('.education.aei-second').offset().left === 0) {
