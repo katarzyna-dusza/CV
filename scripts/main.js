@@ -1,6 +1,10 @@
 import * as cssModifier from './cssModifier';
 import * as utils from './utils';
 
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+}
+
 $(window).on('load', () => {
   $('.loader').fadeOut();
 });
