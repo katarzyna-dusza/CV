@@ -20,7 +20,7 @@ const copyWebpackPlugin = new CopyWebpackPlugin([
 
 module.exports = {
     entry: {
-        js: ['./scripts/setCss.js', './scripts/main.js', './scripts/main-mobile.js', './scripts/panels.js'],
+        js: ['./scripts/cssModifier.js', './scripts/main.js', './scripts/main-mobile.js', './scripts/panels.js'],
         css: ['./styles/main.scss']
     },
     output: {
