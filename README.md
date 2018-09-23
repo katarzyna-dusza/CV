@@ -24,5 +24,4 @@ The application should appear under [localhost](localhost:8080).
 ## Roadmap
 
 There are a couple of things, which will be improved:
-- [ ] make the code more generic -> create an open source library, the first draft is available [here](https://github.com/katarzyna-dusza/slider) 
-- [ ] provide scrolling from different sides (top -> bottom and left -> right)
+- [ ] make the code more generic -> create an open source library, the first draft is available [here](https://github.com/katarzyna-dusza/slider)
