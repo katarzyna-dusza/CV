@@ -1,12 +1,21 @@
-const scrollToElement = (element) => {
+let firstExecution = 0;
+
+const modificator = (name) => {
+  const elementsToModify = ['education.aei-first', 'skills', 'portfolio.openwhisk', 'contact'];
+  firstExecution++;
+
+  return 1 === firstExecution && elementsToModify.includes(name) ? 2 : 1;
+}
+
+const scrollToElement = (name, element) => {
     $('html, body').animate({
-        scrollTop: element.offset().top
+        scrollTop: element.offset().top * modificator(name)
     }, 1000);
 }
 
 const goTo = (navElement) => {
-    const aboutElement = $('.' + navElement.id);
-    scrollToElement(aboutElement);
+    const element = $('.' + navElement.id);
+    scrollToElement(navElement.id, element);
 }
 
 const clearNavigationElements = () => {
