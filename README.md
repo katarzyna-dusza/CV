@@ -1,13 +1,13 @@
-# New CV
+# CV
 
-This is a source code of my new CV available at: [katarzyna-dusza.github.io](https://katarzyna-dusza.github.io).
+This is a source code of my CV available at: [katarzyna-dusza.github.io](https://katarzyna-dusza.github.io).
 
-The new CV project has similar behavior to [reveal.js](https://revealjs.com). The sections are equivalent to slides, you have a couple of animations like zooming and so on.
+The project has a similar behavior to [reveal.js](https://revealjs.com). The sections are equivalent to slides, there are a couple of animations like zooming and so on.
 
 ## Technologies
+- **ES6**
 - **jQuery**
 - **Webpack**
-
 
 ## Run app
 1. Install all dependencies
@@ -19,10 +19,9 @@ The new CV project has similar behavior to [reveal.js](https://revealjs.com). Th
     ```shell
     npm start
     ```
-The application should appear under [localhost](localhost:8080) (port 8080 is set by default).
+The application should appear under [localhost](localhost:8080).
 
 ## Roadmap
 
 There are a couple of things, which will be improved:
-- [ ] make the code more generic -> create a open source library, the POC is available [here](https://github.com/katarzyna-dusza/slider) 
-- [ ] provide scrolling from different sides (top -> bottom and left -> right)
+- [ ] make the code more generic -> create an open source library, the first draft is available [here](https://github.com/katarzyna-dusza/slider)
