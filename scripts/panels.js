@@ -1,7 +1,7 @@
 let firstExecution = 0;
 
 const modificator = (name) => {
-  const elementsToModify = ['education.aei-first', 'skills', 'portfolio.openwhisk', 'contact'];
+  const elementsToModify = ['aei-first', 'skills', 'openwhisk', 'contact'];
   firstExecution++;
 
   return 1 === firstExecution && elementsToModify.includes(name) ? 2 : 1;
@@ -52,13 +52,13 @@ const currentNavigationElement = (currentPosition) => {
         case (currentPosition >= about && currentPosition < sapFirst):
             return $('#about').addClass('current');
         case (currentPosition >= sapFirst && currentPosition < aeiFirst):
-            return $('#experience').addClass('current');
+            return $('#sap-first').addClass('current');
         case (currentPosition >= aeiFirst && currentPosition < skills):
-            return $('#education').addClass('current');
+            return $('#aei-first').addClass('current');
         case (currentPosition >= skills && currentPosition < openwhisk):
             return $('#skills').addClass('current');
         case (currentPosition >= openwhisk && currentPosition < contact):
-            return $('#portfolio').addClass('current');
+            return $('#openwhisk').addClass('current');
         case (currentPosition >= contact):
             return $('#contact').addClass('current');
         default:
